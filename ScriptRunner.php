@@ -194,7 +194,7 @@ class ScriptRunner
         }
 
         // No errors
-        return 1;
+        return NO_ERRORS_FOUND;
     }
 
 
