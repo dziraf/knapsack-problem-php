@@ -4,7 +4,7 @@ Knapsack Problem solver implementation in PHP.
 ### How to run
 Run with command:<br/>
 `php ScriptRunner.php --file=<file_path - string> --weight=<int> --algorithm=<int>`<br/>
-Example:
+Example: <br/>
 `php ScriptRunner.php --file=file.csv --weight=50 --algorithm=1`
 
 ### Parameters
