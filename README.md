@@ -11,3 +11,6 @@ Example (if run from main directory): <br/>
 * file - CSV file path, required
 * weight - int/float number, required
 * algorithm - int number, optional, default: 1
+
+### Available algorithms
+* GreedyAlgorithm - value: 1
