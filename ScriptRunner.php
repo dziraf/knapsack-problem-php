@@ -58,7 +58,7 @@ class ScriptRunner
      * @param array $arguments      array of command line arguments
      * @return int                  error code if arguments number is incorrect, 1 if there were no errors
      */
-    function checkArgumentsNumber(array $arguments) : int
+    private function checkArgumentsNumber(array $arguments) : int
     {
         $arguments_number = sizeof($arguments);
 
@@ -87,7 +87,7 @@ class ScriptRunner
      * Displays an error message and exits script if an error was found.
      * @param int $resultCode      number representing a function's result code
      */
-    function handleErrors(int $resultCode) : void
+    private function handleErrors(int $resultCode) : void
     {
         switch($resultCode) {
             case E_NOT_ENOUGH_ARGS:
@@ -125,7 +125,7 @@ class ScriptRunner
      * @param array $arguments      array of arguments passed to the script
      * @return int                  error code if arguments number was incorrect, 1 if there were no errors
      */
-    function checkArgumentsTypes(array &$arguments) : int
+    private function checkArgumentsTypes(array &$arguments) : int
     {
         // Check if file is a .csv file
         if(substr($arguments['file'], -4) !== '.csv') {
@@ -158,7 +158,7 @@ class ScriptRunner
      * Loads arguments to referenced variables.
      * @param array $arguments          array of arguments passed to the script
      */
-    function loadArguments(array &$arguments) : void
+    private function loadArguments(array &$arguments) : void
     {
         $this->csvFile = $arguments['file'];
         $this->knapsackWeight = (float)$arguments['weight'];
@@ -171,7 +171,7 @@ class ScriptRunner
      * Loads file contents to an array, displays a message if file couldn't be loaded.
      * @return array                    array of file's lines
      */
-    function readCsvFile() : array
+    private function readCsvFile() : array
     {
         if(file_exists($this->csvFile)) {
             return file($this->csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -186,7 +186,7 @@ class ScriptRunner
      * @param array $fileContents       array of lines loaded from file
      * @return int                      error code if file contents were invalid, 1 if there were no errors
      */
-    function verifyFileContents(array &$fileContents) : int
+    private function verifyFileContents(array &$fileContents) : int
     {
         $number_of_lines = sizeof($fileContents);
         for($i = 1; $i < $number_of_lines; $i++) {
@@ -203,7 +203,7 @@ class ScriptRunner
      * @param array $fileContents           array containing file contents
      * @return array                        array of Items
      */
-    function loadItems(array &$fileContents) : array
+    private function loadItems(array &$fileContents) : array
     {
         $items_number = sizeof($fileContents);
         $items_array = [];

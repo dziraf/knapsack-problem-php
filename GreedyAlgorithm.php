@@ -23,7 +23,7 @@ class GreedyAlgorithm implements IKnapsackProblemSolver
         $items_number = sizeof($itemsArray);
 
         // Sort items according to value-weight ratio ("better" items are at the beginning of the array)
-        usort($itemsArray, array("GreedyAlgorithm", "compare_items"));
+        usort($itemsArray, array("GreedyAlgorithm", "compareItems"));
 
         // Add items to knapsack as long as weight doesn't exceed knapsack's limit
         for($i = 0; $i < $items_number; $i++) {
@@ -44,7 +44,7 @@ class GreedyAlgorithm implements IKnapsackProblemSolver
      * @param Item $item2       second item to compare
      * @return bool             comparison result
      */
-    private function compare_items(Item &$item1, Item &$item2) : bool
+    private function compareItems(Item &$item1, Item &$item2) : bool
     {
         $first_item_ratio = (float)$item1->getValue() / $item1->getWeight();
         $second_item_ratio = (float)$item2->getValue() / $item2->getWeight();
